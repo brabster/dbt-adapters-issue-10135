@@ -2,7 +2,7 @@ on:
   push: {}
 
 jobs:
-  test_dbt_adapters_issue:
+  test_update:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
