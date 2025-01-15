@@ -2,12 +2,12 @@ on:
   push: {}
 
 jobs:
-  test_dbt_adapters_issue_matrix:
+  test_dbt_adapters_issue:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python_version: ['3.11', '3.12']
-        from_version: ['1.7.7, '1.8.0']
+        from_version: ['1.7.7', '1.8.0']
         to_version: ['1.8.0', '1.9.0']
     steps:
       - uses: actions/setup-python@v5
