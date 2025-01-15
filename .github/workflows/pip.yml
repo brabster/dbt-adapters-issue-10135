@@ -1,3 +1,6 @@
+on:
+  push: {}
+
 jobs:
   test_dbt_adapters_issue_matrix:
     runs-on: ubuntu-latest
