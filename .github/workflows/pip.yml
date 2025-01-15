@@ -1,0 +1,21 @@
+jobs:
+  test_dbt_adapters_issue_matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: [3.9, 3.10, 3.11, 3.12]
+        from_version: [1.7.7, 1.8.0]
+        to_version: [1.8.0, 1.9.0]
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python_version }}
+      - name: pip-in-venv
+        shell: bash
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install dbt-bigquery==${{ matrix.from_version }}
+          dbt
+          pip install dbt-bigquery==${{ matrix.to_version }}
+          dbt
