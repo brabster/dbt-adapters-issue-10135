@@ -5,6 +5,7 @@ jobs:
   test_dbt_adapters_issue:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python_version: ['3.11', '3.12']
         from_version: ['1.7.7', '1.8.0']
